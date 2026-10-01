@@ -84,8 +84,8 @@
     position: absolute !important;
     top: auto !important;
     left: auto !important;
-    right: 0 !important;
-    bottom: clamp(32px, 7svh, 60px) !important;
+    right: 34px !important;
+    bottom: calc(120px + clamp(36px, 8svh, 64px)) !important;
     transform: none !important;
     text-align: right;
     margin: 0;
