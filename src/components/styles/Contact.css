@@ -229,3 +229,24 @@ a.contact-social {
 .contact-form-status.err {
   color: #ff7b7b;
 }
+
+.contact-main {
+  display: flex;
+  align-items: flex-start;
+  gap: 56px;
+  margin-bottom: 50px;
+}
+.contact-main .contact-form {
+  flex: 1 1 340px;
+  min-width: 0;
+  margin-bottom: 0;
+}
+@media only screen and (max-width: 1099px) {
+  .contact-main {
+    display: block;
+    margin-bottom: 0;
+  }
+  .contact-main .contact-form {
+    margin-bottom: 50px;
+  }
+}

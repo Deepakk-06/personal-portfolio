@@ -1,5 +1,6 @@
 import { MdArrowOutward, MdCopyright } from "react-icons/md";
 import "./styles/Contact.css";
+import RetroGame from "./RetroGame";
 import { config } from "../config";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -80,6 +81,7 @@ const Contact = () => {
     <div className="contact-section section-container" id="contact">
       <div className="contact-container">
         <h3>{config.developer.fullName}</h3>
+        <div className="contact-main">
         <form className="contact-form" onSubmit={handleSubmit}>
           <h4>Send me a message</h4>
           <div className="contact-form-row">
@@ -126,6 +128,8 @@ const Contact = () => {
           {status === "sent" && <p className="contact-form-status ok">Message sent. I'll get back to you soon.</p>}
           {status === "error" && <p className="contact-form-status err">Could not send. Please email me directly.</p>}
         </form>
+        <RetroGame />
+        </div>
         <div className="contact-flex">
           <div className="contact-box">
             <h4>Email</h4>
