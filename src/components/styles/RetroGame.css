@@ -1,5 +1,6 @@
 .retro-game {
   flex: 0 1 400px;
+  margin-left: auto;
   min-width: 300px;
   display: flex;
   flex-direction: column;
@@ -23,7 +24,7 @@
 }
 .retro-screen {
   position: relative;
-  aspect-ratio: 440 / 308;
+  aspect-ratio: 440 / 264;
   border: 1px solid rgba(255, 255, 255, 0.25);
   border-radius: 6px;
   overflow: hidden;

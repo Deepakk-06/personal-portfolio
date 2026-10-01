@@ -2,7 +2,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import "./styles/RetroGame.css";
 
 const COLS = 20;
-const ROWS = 14;
+const ROWS = 12;
 const CELL = 22;
 const W = COLS * CELL;
 const H = ROWS * CELL;
@@ -43,7 +43,7 @@ const Game = () => {
   const snake = useRef<Pt[]>([]);
   const dir = useRef<Pt>({ x: 1, y: 0 });
   const queue = useRef<Pt[]>([]);
-  const food = useRef<Pt>({ x: 12, y: 7 });
+  const food = useRef<Pt>({ x: 12, y: 6 });
   const timer = useRef<number | null>(null);
   const statusRef = useRef<Status>("idle");
   const scoreRef = useRef(0);
@@ -150,9 +150,9 @@ const Game = () => {
 
   const reset = useCallback(() => {
     snake.current = [
-      { x: 6, y: 7 },
-      { x: 5, y: 7 },
-      { x: 4, y: 7 },
+      { x: 6, y: 6 },
+      { x: 5, y: 6 },
+      { x: 4, y: 6 },
     ];
     dir.current = { x: 1, y: 0 };
     queue.current = [];
