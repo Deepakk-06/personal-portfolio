@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import "./App.css";
+import MusicToggle from "./components/MusicToggle";
 
 const CharacterModel = lazy(() => import("./components/Character"));
 const MainContainer = lazy(() => import("./components/MainContainer"));
@@ -36,6 +37,7 @@ const App = () => {
           }
         />
       </Routes>
+      <MusicToggle />
       <Analytics />
       <SpeedInsights />
     </BrowserRouter>
