@@ -41,6 +41,53 @@
   display: block;
 }
 
+/* Phone-only: make About feel like the next scene, not a small paragraph
+   immediately beneath the character canvas. */
+@media only screen and (max-width: 767px) {
+  .about-section {
+    width: 100%;
+    min-height: 64svh;
+    box-sizing: border-box;
+    padding: 82px 16px 88px;
+    overflow: hidden;
+    background:
+      linear-gradient(90deg, rgba(198, 255, 0, 0.55) 0 1px, transparent 1px) 16px 0 / calc(100% - 32px) 1px no-repeat,
+      radial-gradient(circle at 82% 16%, rgba(255, 45, 149, 0.13), transparent 42%),
+      radial-gradient(circle at 8% 90%, rgba(0, 229, 255, 0.09), transparent 38%);
+  }
+
+  .about-section::before {
+    content: "ABOUT / 01";
+    position: absolute;
+    top: 28px;
+    right: 16px;
+    color: rgba(198, 255, 0, 0.7);
+    font-family: var(--fontMono);
+    font-size: 9px;
+    letter-spacing: 0.16em;
+  }
+
+  .about-me {
+    max-width: none;
+    padding: 0;
+  }
+
+  .about-me h3 {
+    margin: 0 0 22px;
+    font-size: 14px;
+    letter-spacing: 0.2em;
+  }
+
+  .about-me p {
+    max-width: 34ch;
+    margin: 0;
+    font-size: clamp(22px, 6vw, 27px);
+    line-height: 1.28;
+    letter-spacing: -0.02em;
+    word-spacing: 0.05em;
+  }
+}
+
 @media only screen and (min-width: 600px) {
   .about-section {
     justify-content: center;

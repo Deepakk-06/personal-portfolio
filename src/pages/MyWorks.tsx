@@ -39,7 +39,7 @@ const MyWorks = () => {
                 className="myworks-card"
                 key={project.id}
                 data-cursor="disable"
-                to={project.link}
+                to={project.link!}
               >
                 {cardContent}
               </Link>
