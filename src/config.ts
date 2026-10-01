@@ -1,8 +1,8 @@
 export const config = {
     developer: {
         name: "Deepak",
-        fullName: "Deepak K",
-        title: "EEE Undergraduate | Robotics, Embedded Systems & Autonomous Navigation",
+        fullName: "Deepak",
+        title: "EEE Undergraduate | Building Autonomous Robots",
         description: "EEE undergraduate building autonomous robots with ROS 2, embedded systems and computer vision."
     },
     social: {

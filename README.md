@@ -1,4 +1,4 @@
-# Deepak K — Portfolio
+# Deepak — Portfolio
 
 3D portfolio built with React, TypeScript, Three.js and GSAP.
 Content lives in `src/config.ts`.
