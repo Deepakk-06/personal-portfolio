@@ -1,4 +1,5 @@
 .now-playing {
+  position: relative;
   align-self: flex-start;
   display: flex;
   align-items: center;
@@ -111,4 +112,81 @@
     animation: none;
     transform: scaleY(0.7);
   }
+}
+
+/* tap-to-preview additions */
+.np-main {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.np-cover {
+  position: relative;
+}
+.np-play {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(6, 8, 9, 0.5);
+  color: var(--accentColor);
+  font-size: 24px;
+  transition: background 0.2s;
+}
+.np-main:hover .np-play {
+  background: rgba(6, 8, 9, 0.7);
+}
+.is-previewing .np-play {
+  background: rgba(6, 8, 9, 0.35);
+}
+.np-hint {
+  margin-top: 1px;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  color: var(--accentColor);
+  white-space: nowrap;
+}
+.np-open {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  color: inherit;
+  font-size: 15px;
+  transition: border-color 0.2s, color 0.2s;
+}
+.np-open:hover {
+  color: var(--accentColor);
+  border-color: var(--accentColor);
+}
+.np-progress {
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  bottom: 0;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--accentColor), #ff2d95) no-repeat;
+  background-size: var(--np-progress, 0%) 100%;
+  opacity: 0;
+  transition: opacity 0.2s;
+  pointer-events: none;
+}
+.is-previewing .np-progress {
+  opacity: 1;
 }

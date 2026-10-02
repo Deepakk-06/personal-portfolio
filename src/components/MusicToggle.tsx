@@ -1,9 +1,21 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./MusicToggle.css";
 
 const MusicToggle = () => {
   const audioRef = useRef<HTMLAudioElement>(null);
   const [playing, setPlaying] = useState(false);
+
+  // The card's song preview pauses the theme (and vice versa).
+  useEffect(() => {
+    const onOther = (e: Event) => {
+      if ((e as CustomEvent).detail === "preview") {
+        audioRef.current?.pause();
+        setPlaying(false);
+      }
+    };
+    window.addEventListener("site-audio", onOther);
+    return () => window.removeEventListener("site-audio", onOther);
+  }, []);
 
   const toggle = async () => {
     const a = audioRef.current;
@@ -14,6 +26,7 @@ const MusicToggle = () => {
     } else {
       try {
         a.volume = 0.4;
+        window.dispatchEvent(new CustomEvent("site-audio", { detail: "theme" }));
         await a.play();
         setPlaying(true);
       } catch {
