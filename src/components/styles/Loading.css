@@ -463,3 +463,39 @@
   bottom: 0;
   background: var(--accentColor);
 }
+
+/* loader-console-mobile: smaller handheld on phones */
+@media only screen and (max-width: 768px) {
+  .loader-console {
+    gap: 6px;
+    padding: 4px 7px;
+    border-radius: 9px;
+  }
+  .lc-screen {
+    width: 68px;
+    height: 41px;
+    border-radius: 3px;
+  }
+  .lc-dpad {
+    width: 11px;
+    height: 11px;
+  }
+  .lc-dpad::before {
+    left: 3.5px;
+    width: 4px;
+    height: 11px;
+  }
+  .lc-dpad::after {
+    top: 3.5px;
+    width: 11px;
+    height: 4px;
+  }
+  .lc-buttons {
+    width: 13px;
+    height: 13px;
+  }
+  .lc-buttons i {
+    width: 6px;
+    height: 6px;
+  }
+}
