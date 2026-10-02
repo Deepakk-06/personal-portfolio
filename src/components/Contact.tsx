@@ -1,6 +1,7 @@
 import { MdArrowOutward, MdCopyright } from "react-icons/md";
 import "./styles/Contact.css";
 import RetroGame from "./RetroGame";
+import NowPlaying from "./NowPlaying";
 import { config } from "../config";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -142,6 +143,7 @@ const Contact = () => {
             <p>
               <span>{config.social.location}</span>
             </p>
+            <NowPlaying />
           </div>
           <div className="contact-box">
             <h4>Social</h4>
