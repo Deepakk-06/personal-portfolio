@@ -615,3 +615,35 @@ h2.landing-info-h2 {
     font-size: 75px;
   }
 }
+
+/* Mobile hero tagline: same lime + pink + white mix as desktop, one-line kicker, aligned to page edge.
+   Placed last so it wins over the base rules above. */
+@media only screen and (max-width: 768px) {
+  .landing-info {
+    right: 0 !important;
+    align-items: flex-end;
+    text-align: right;
+  }
+  .landing-info-kicker {
+    font-size: clamp(11px, 3.4vw, 14px) !important;
+    letter-spacing: 0.16em !important;
+    line-height: 1.2 !important;
+    white-space: nowrap;
+    margin: 0 0 8px !important;
+    color: var(--accentColor);
+    text-align: right;
+  }
+  .landing-h2-1 {
+    color: #ff2d95 !important;
+  }
+  .landing-h2-info {
+    color: #ffffff !important;
+  }
+  .landing-info-kicker,
+  .landing-h2-info {
+    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.85);
+  }
+  .landing-h2-1 {
+    text-shadow: 0 0 22px rgba(255, 45, 149, 0.45), 0 2px 14px rgba(0, 0, 0, 0.85);
+  }
+}
