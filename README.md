@@ -24,6 +24,7 @@ Press start. Scroll down. Meet the bots.
 ![Vercel](https://img.shields.io/badge/Vercel-0a0a0c?style=flat-square&logo=vercel&logoColor=white)
 ![Resend](https://img.shields.io/badge/Resend-0a0a0c?style=flat-square&logo=resend&logoColor=white)
 ![Last.fm](https://img.shields.io/badge/Last.fm-0a0a0c?style=flat-square&logo=lastdotfm&logoColor=D51007)
+![Spotify](https://img.shields.io/badge/Spotify-0a0a0c?style=flat-square&logo=spotify&logoColor=1DB954)
 
 ![deepAk portfolio preview](docs/preview.png)
 
@@ -64,11 +65,21 @@ Full write-ups live on the [`/myworks`](https://deepxk.vercel.app/myworks) page.
 ## 🎧 Easter eggs and extras
 
 - 🔊 **SOUND toggle:** background music (`theme.mp3`)
-- 🎵 **"Deepak is listening to":** a live Last.fm card with a tap-to-play 30-second preview. It stays silent until tapped and takes turns with the SOUND button, so the two never overlap
+- 🎵 **"Deepak is listening to":** a live card powered by Last.fm, which scrobbles my Spotify plays. It has a tap-to-play 30-second preview fetched from iTunes or Deezer. It stays silent until tapped and takes turns with the SOUND button, so the two never overlap
 - 👾 **BOT.EXE:** a retro mini-game next to the contact form (desktop only)
 - 🏓 **Pong loader:** shrunk to fit phones
 - 📬 **Link previews:** shares cleanly on LinkedIn, WhatsApp and X
 - 📱 **Mobile-first details:** centred CTA buttons, tuned hero text, shorter About copy
+
+## 🎶 How the listening card works
+
+```
+Spotify  →  Last.fm (scrobbles)  →  site reads recent track  →  iTunes / Deezer (30s preview)
+```
+
+The site never talks to Spotify directly. Spotify scrobbles every play to
+Last.fm, the card reads the latest track from Last.fm, and the preview clip
+comes from iTunes or Deezer.
 
 ## 🛠️ Tech
 
@@ -77,7 +88,7 @@ Full write-ups live on the [`/myworks`](https://deepxk.vercel.app/myworks) page.
 | Frontend | React, TypeScript, Three.js |
 | Backend | Vercel serverless functions |
 | Email | Resend |
-| Music | Last.fm API |
+| Music | Last.fm API (Spotify scrobbles), iTunes / Deezer for 30-second previews |
 | Hosting | Vercel |
 
 ## 🚀 Insert coin (run locally)
@@ -124,6 +135,6 @@ Copyright (c) 2025 Redoyanul Haque · Copyright (c) 2026 Deepak
 EOF
 git add README.md
 if git diff --cached --quiet; then echo "NOTHING TO CHANGE"
-else git commit -qm "Rewrite README" && git push -q origin main && echo "DONE: README pushed"
+else git commit -qm "README: full rewrite with listening card details" && git push -q origin main && echo "DONE: README pushed"
 fi
 cd ~/Desktop && rm -rf pp-edit
