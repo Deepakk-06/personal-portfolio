@@ -1,24 +1,86 @@
-# deepAk — Portfolio
+cd ~/Desktop && rm -rf pp-edit && git clone -q https://github.com/Deepakk-06/personal-portfolio.git pp-edit && cd pp-edit
+cat > README.md <<'EOF'
+<div align="center">
 
-Personal portfolio website of Deepak.
+```
+ ____  _____ _____ ____    _    _
+|  _ \| ____| ____|  _ \  / \  | | __
+| | | |  _| |  _| | |_) |/ _ \ | |/ /
+| |_| | |___| |___|  __// ___ \|   <
+|____/|_____|_____|_|  /_/   \_\_|\_\
+```
 
-🔗 **Live:** https://deepxk.vercel.app
+### `PLAYER 1 / BUILDER 1`
+
+**A retro-arcade portfolio for a robotics and embedded builder.**
+Press start. Scroll down. Meet the bots.
+
+[![Live Site](https://img.shields.io/badge/LIVE-deepxk.vercel.app-C6FF00?style=for-the-badge&labelColor=0a0a0c)](https://deepxk.vercel.app)
+[![License](https://img.shields.io/badge/LICENSE-MIT-FF40A0?style=for-the-badge&labelColor=0a0a0c)](./LICENSE)
+
+![React](https://img.shields.io/badge/React-0a0a0c?style=flat-square&logo=react&logoColor=61DAFB)
+![TypeScript](https://img.shields.io/badge/TypeScript-0a0a0c?style=flat-square&logo=typescript&logoColor=3178C6)
+![Three.js](https://img.shields.io/badge/Three.js-0a0a0c?style=flat-square&logo=threedotjs&logoColor=white)
+![Vercel](https://img.shields.io/badge/Vercel-0a0a0c?style=flat-square&logo=vercel&logoColor=white)
+![Resend](https://img.shields.io/badge/Resend-0a0a0c?style=flat-square&logo=resend&logoColor=white)
+![Last.fm](https://img.shields.io/badge/Last.fm-0a0a0c?style=flat-square&logo=lastdotfm&logoColor=D51007)
 
 ![deepAk portfolio preview](docs/preview.png)
 
-## ✨ Highlights
+</div>
 
-- Game-style loading screen: a handheld console running a live Pong match
-- 3D animated avatar and scroll-driven sections
-- Interactive mini-game in the contact section (desktop only)
-- Sound toggle and contact form
-- Responsive layout with mobile-specific transitions
+---
 
-## 🛠 Built With
+## 🕹️ What is this?
 
-React · TypeScript · Vercel
+The personal site of **Deepak**, an EEE student who builds robots. It looks
+like an arcade cabinet, but underneath it is an engineering log: autonomous
+navigation, SLAM, embedded systems and custom hardware.
 
-## 🚀 Run Locally
+## 🎮 Level select
+
+| Level | What's inside |
+| --- | --- |
+| **LOADER** | Lime "PLAYER 1 / BUILDER 1" marquee and a handheld console playing a **real, live Pong match** |
+| **HERO** | 3D animated character, "HELLO, WORLD. deepAk", lime / pink / white tagline, socials, resume link, custom cursor |
+| **ABOUT** | Full story on laptop and tablet, a shorter cut on phones, with a scan-line, blur and glitch reveal on mobile |
+| **WHAT I DO** | Robotics & Autonomy, and Embedded & Vision |
+| **CAREER** | Timeline from pre-university college to the embedded systems club |
+| **WORK** | Six featured projects, plus a full `/myworks` page |
+| **TECH STACK** | Interactive 3D section you can play with |
+| **CONTACT** | Working email form, BOT.EXE mini-game and the live listening card |
+
+## 🤖 Boss fights (projects)
+
+- **Branchless**
+- **Hexapod-6**
+- **SLAM robot**
+- **ROS 2 MPC navigation system**
+- **Soil grain system**
+- **Motor control PCB**
+
+Full write-ups live on the [`/myworks`](https://deepxk.vercel.app/myworks) page.
+
+## 🎧 Easter eggs and extras
+
+- 🔊 **SOUND toggle:** background music (`theme.mp3`)
+- 🎵 **"Deepak is listening to":** a live Last.fm card with a tap-to-play 30-second preview. It stays silent until tapped and takes turns with the SOUND button, so the two never overlap
+- 👾 **BOT.EXE:** a retro mini-game next to the contact form (desktop only)
+- 🏓 **Pong loader:** shrunk to fit phones
+- 📬 **Link previews:** shares cleanly on LinkedIn, WhatsApp and X
+- 📱 **Mobile-first details:** centred CTA buttons, tuned hero text, shorter About copy
+
+## 🛠️ Tech
+
+| Layer | Tools |
+| --- | --- |
+| Frontend | React, TypeScript, Three.js |
+| Backend | Vercel serverless functions |
+| Email | Resend |
+| Music | Last.fm API |
+| Hosting | Vercel |
+
+## 🚀 Insert coin (run locally)
 
 ```bash
 git clone https://github.com/Deepakk-06/personal-portfolio.git
@@ -27,7 +89,22 @@ npm install
 npm run dev
 ```
 
-## 🙌 Acknowledgements
+The contact form (Resend) and the listening card (Last.fm) need API keys.
+Without them the site still runs, but those two features won't work.
+Never commit real keys: keep them in a local `.env` file and in your host's
+environment variable settings.
+
+## 🗺️ Roadmap
+
+- [x] Pong loading screen
+- [x] Last.fm listening card with previews
+- [x] Mobile About reveal
+- [x] Link previews for LinkedIn and WhatsApp
+- [ ] About: VLA / Isaac Lab research and SO-101 build
+- [ ] "Off the clock" section
+- [ ] Live YouTube sync
+
+## 🙌 Credits
 
 This project started from the open-source portfolio of
 [Redoyanul Haque](https://www.redoyanulhaque.me) (MIT License). The design,
@@ -38,3 +115,15 @@ Thanks to Redoyanul for the starting point.
 
 Released under the [MIT License](./LICENSE).
 Copyright (c) 2025 Redoyanul Haque · Copyright (c) 2026 Deepak
+
+<div align="center">
+
+**GAME OVER? NEVER. INSERT COIN TO CONTINUE.**
+
+</div>
+EOF
+git add README.md
+if git diff --cached --quiet; then echo "NOTHING TO CHANGE"
+else git commit -qm "Rewrite README" && git push -q origin main && echo "DONE: README pushed"
+fi
+cd ~/Desktop && rm -rf pp-edit
