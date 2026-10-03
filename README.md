@@ -1,5 +1,3 @@
-cd ~/Desktop && rm -rf pp-edit && git clone -q https://github.com/Deepakk-06/personal-portfolio.git pp-edit && cd pp-edit
-cat > README.md <<'EOF'
 <div align="center">
 
 ```
@@ -132,9 +130,3 @@ Copyright (c) 2025 Redoyanul Haque · Copyright (c) 2026 Deepak
 **GAME OVER? NEVER. INSERT COIN TO CONTINUE.**
 
 </div>
-EOF
-git add README.md
-if git diff --cached --quiet; then echo "NOTHING TO CHANGE"
-else git commit -qm "README: full rewrite with listening card details" && git push -q origin main && echo "DONE: README pushed"
-fi
-cd ~/Desktop && rm -rf pp-edit
