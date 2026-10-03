@@ -1,4 +1,5 @@
 .cta-section {
+  box-sizing: border-box; /* cta-fix: padding was pushing the section 40px wider than the screen */
   width: 100%;
   padding: 80px 20px;
   background-color: var(--backgroundColor);
@@ -58,10 +59,14 @@
   .cta-buttons {
     flex-direction: column;
     gap: 15px;
+    width: 100%;
+    max-width: 280px;
   }
 
   .cta-btn {
     justify-content: center;
     padding: 12px 28px;
+    width: 100%;
+    box-sizing: border-box;
   }
 }

@@ -29,6 +29,9 @@ const About = () => {
         <p className="para">
           {config.about.description.split("Deepak").map((part, i, arr) => i < arr.length - 1 ? <span key={i}>{part}deepAk</span> : part)}
         </p>
+        <p className="para-short">
+          {config.about.shortDescription.split("Deepak").map((part, i, arr) => i < arr.length - 1 ? <span key={i}>{part}deepAk</span> : part)}
+        </p>
       </div>
     </div>
   );

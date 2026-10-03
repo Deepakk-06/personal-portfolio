@@ -194,3 +194,16 @@
   .about-section.m-armed .about-me { opacity: 1; transform: none; filter: none; animation: none; }
   .about-section.m-armed::after, .about-section.m-in .about-me h3 { animation: none; }
 }
+
+/* about-short: phones get a shorter About paragraph, tablets and desktop keep the full one */
+.about-me p.para-short {
+  display: none;
+}
+@media only screen and (max-width: 767px) {
+  .about-me p.para {
+    display: none;
+  }
+  .about-me p.para-short {
+    display: block;
+  }
+}

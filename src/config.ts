@@ -12,7 +12,8 @@ export const config = {
     },
     about: {
         title: "About Me",
-        description: "It started with a controller. Then came the code. Then the circuits. Now I've got robots finding their way through the dark on their own, and I still want more. I always want more. I'm Deepak. When the world logs off, I log on. All night with a game, or all night with a build. Never both, never boring, never sleeping. Come closer. The best things I make happen after midnight."
+        description: "It started with a controller. Then came the code. Then the circuits. Now I've got robots finding their way through the dark on their own, and I still want more. I always want more. I'm Deepak. When the world logs off, I log on. All night with a game, or all night with a build. Never both, never boring, never sleeping. Come closer. The best things I make happen after midnight.",
+        shortDescription: "It started with a controller. Then came the code. Then the circuits. Now I've got robots finding their way through the dark on their own, and I still want more. I'm Deepak. When the world logs off, I log on. The best things I make happen after midnight."
     },
     experiences: [
         {
