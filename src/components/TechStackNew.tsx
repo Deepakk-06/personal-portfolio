@@ -3,7 +3,11 @@ import "./styles/TechStackNew.css";
 
 interface TechItem {
   name: string;
-  icon: string;
+  icon?: string;
+  logo?: string; // wide wordmark logo (shown in white), used instead of icon
+  suffix?: string; // text that follows the logo, e.g. "2" in "ROS 2"
+  wide?: boolean; // spans two columns
+  mono?: boolean; // dark single-colour logo, drawn in white so it stays visible
   url: string;
 }
 
@@ -22,17 +26,19 @@ const groups: TechGroup[] = [
     label: "CODE",
     accent: "lime",
     items: [
+      // Official ROS logo (nine dots + ROS) from github.com/ros-infrastructure/artwork, followed by "2" as Open Robotics suggests.
+      // Subject to the ROS trademark policy (https://www.ros.org/blog/media/) and CC BY-NC 4.0.
+      { name: "ROS 2", logo: "/images/ros-logo.svg", suffix: "2", wide: true, url: "https://docs.ros.org/en/jazzy/" },
       { name: "Python", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg", url: "https://python.org" },
       { name: "C", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg", url: "https://en.cppreference.com/w/c" },
       { name: "Arduino", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/arduino/arduino-original.svg", url: "https://www.arduino.cc/reference/en/" },
-      { name: "ROS 2", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ros/ros-original.svg", url: "https://docs.ros.org/en/jazzy/" },
     ],
   },
   {
     label: "HARDWARE",
     accent: "cyan",
     items: [
-      { name: "STM32", icon: "https://cdn.simpleicons.org/stmicroelectronics", url: "https://www.st.com/en/microcontrollers-microprocessors/stm32-32-bit-arm-cortex-mcus.html" },
+      { name: "STM32", icon: "https://cdn.simpleicons.org/stmicroelectronics", mono: true, url: "https://www.st.com/en/microcontrollers-microprocessors/stm32-32-bit-arm-cortex-mcus.html" },
       { name: "ESP32", icon: "https://cdn.simpleicons.org/espressif", url: "https://www.espressif.com/en/products/socs/esp32" },
       { name: "NVIDIA Jetson", icon: "https://cdn.simpleicons.org/nvidia", url: "https://developer.nvidia.com/embedded-computing" },
       { name: "Raspberry Pi", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/raspberrypi/raspberrypi-original.svg", url: "https://www.raspberrypi.com/products/raspberry-pi-4-model-b/" },
@@ -60,7 +66,7 @@ const groups: TechGroup[] = [
     accent: "pink",
     items: [
       { name: "EasyEDA", icon: "https://cdn.simpleicons.org/easyeda", url: "https://easyeda.com" },
-      { name: "Linux", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg", url: "https://www.linux.org" },
+      { name: "Linux", icon: "https://cdn.simpleicons.org/linux", url: "https://www.linux.org" },
     ],
   },
 ];
@@ -126,13 +132,20 @@ const TechStackNew = () => {
                     href={tech.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="ts-slot"
+                    className={`ts-slot${tech.wide ? " is-wide" : ""}`}
                     title={tech.name}
                     data-cursor="disable"
                     style={{ "--d": ti } as React.CSSProperties}
                   >
-                    <span className="ts-icon">
-                      <img src={tech.icon} alt="" loading="lazy" decoding="async" />
+                    <span className={`ts-icon${tech.mono ? " is-mono" : ""}${tech.logo ? " has-logo" : ""}`}>
+                      {tech.logo ? (
+                        <span className="ts-logo">
+                          <img src={tech.logo} alt="" decoding="async" />
+                          {tech.suffix && <b aria-hidden="true">{tech.suffix}</b>}
+                        </span>
+                      ) : (
+                        <img src={tech.icon} alt="" loading="lazy" decoding="async" />
+                      )}
                     </span>
                     <span className="ts-name">{tech.name}</span>
                   </a>

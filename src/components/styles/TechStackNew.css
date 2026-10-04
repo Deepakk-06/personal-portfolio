@@ -273,9 +273,59 @@
   color: rgba(255, 255, 255, 0.78);
   overflow-wrap: anywhere;
 }
+/* dark single-colour logos (STM32) are drawn in white so they stay visible */
+.ts-icon.is-mono img {
+  filter: brightness(0) invert(1);
+  opacity: 0.92;
+}
+.ts-slot:hover .ts-icon.is-mono img,
+.ts-slot:focus-visible .ts-icon.is-mono img {
+  filter: brightness(0) invert(1) drop-shadow(0 0 6px rgba(var(--acc-rgb), 0.95));
+  opacity: 1;
+}
 .ts-slot:hover .ts-name,
 .ts-slot:focus-visible .ts-name {
   color: #fff;
+}
+
+/* wide logo slot (official ROS logo followed by "2") */
+.ts-slot.is-wide {
+  grid-column: span 2;
+}
+.ts-icon.has-logo {
+  width: auto;
+  height: 38px;
+}
+.ts-logo {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  transition: transform 0.3s ease;
+}
+.ts-icon .ts-logo img {
+  width: auto;
+  height: 28px;
+  max-width: none;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  opacity: 0.92;
+  transition: filter 0.3s ease, opacity 0.3s ease;
+}
+.ts-logo b {
+  font-family: var(--fontMono);
+  font-size: 27px;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--acc);
+}
+.ts-slot:hover .ts-logo,
+.ts-slot:focus-visible .ts-logo {
+  transform: scale(1.06);
+}
+.ts-slot:hover .ts-icon .ts-logo img,
+.ts-slot:focus-visible .ts-icon .ts-logo img {
+  filter: brightness(0) invert(1) drop-shadow(0 0 7px rgba(var(--acc-rgb), 0.95));
+  opacity: 1;
 }
 
 /* scroll reveal (only armed when JS is running) */
