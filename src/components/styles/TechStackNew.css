@@ -415,3 +415,50 @@
     transition: none;
   }
 }
+
+/* ---- Retro arcade background (replaces the video) ---- */
+.techstack-video-container {
+  background: #060809;
+}
+.techstack-overlay {
+  background: transparent;
+}
+.techstack-glow {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 85% 8%, rgba(255, 45, 149, 0.22), transparent 42%),
+    radial-gradient(circle at 10% 95%, rgba(198, 255, 0, 0.12), transparent 40%);
+}
+.techstack-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(198, 255, 0, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(198, 255, 0, 0.07) 1px, transparent 1px);
+  background-size: 48px 48px;
+  -webkit-mask-image: radial-gradient(ellipse at center, #000 35%, transparent 85%);
+  mask-image: radial-gradient(ellipse at center, #000 35%, transparent 85%);
+}
+.techstack-scan {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.025) 0,
+    rgba(255, 255, 255, 0.025) 1px,
+    transparent 1px,
+    transparent 4px
+  );
+  animation: ts-scan-drift 8s linear infinite;
+}
+@keyframes ts-scan-drift {
+  from { background-position-y: 0; }
+  to { background-position-y: 40px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .techstack-scan { animation: none; }
+}
+@media (max-width: 768px) {
+  .techstack-grid { background-size: 32px 32px; }
+}
