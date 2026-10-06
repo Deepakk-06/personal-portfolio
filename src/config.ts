@@ -52,7 +52,8 @@ export const config = {
             technologies: "Browser-based workflow, Skill matching, Vercel",
             image: "/images/branchless.png",
             description: "A browser-based demo that matches a job description and resume by demonstrable skills, so students are evaluated by the work they can show rather than an eligibility rule.",
-            link: "https://branchlesss.vercel.app"
+            link: "https://branchlesss.vercel.app",
+            github: "https://github.com/Deepakk-06/skill-match",
         },
         {
             id: 2,
@@ -60,17 +61,19 @@ export const config = {
             category: "Autonomous ROS 2 Legged Robot",
             technologies: "ROS 2, NVIDIA Jetson, STM32, Python, RPLIDAR",
             image: "/images/hexapod-six.jpeg",
-            description: "Six-legged autonomous robot with a Jetson for high-level compute and an STM32 for real-time servo control. IMU feedback keeps the gait stable on uneven terrain, with LiDAR SLAM mapping the environment.",
-            link: "https://drive.google.com/file/d/1c_568cxnXh-NULooI7N-SExnUtUsB6nH/view?usp=sharing"
+            description: "Six-legged ROS 2 robot on a Jetson Orin Nano with 18 STS3215 servos: custom servo driver, inverse kinematics derived from scratch (IK/FK verified to under 0.001 mm), tripod and wave gaits, and SLAM with Nav2.",
+            link: "https://drive.google.com/file/d/1c_568cxnXh-NULooI7N-SExnUtUsB6nH/view?usp=sharing",
+            github: "https://github.com/Deepakk-06/hexapod-6",
         },
         {
             id: 3,
             title: "Autonomous SLAM Robot with Monocular Depth Vision",
             category: "Robotics / Computer Vision",
-            technologies: "ROS 2, TurtleBot, Raspberry Pi 4, Depth Anything V2, GPU",
+            technologies: "ROS 2, slam_toolbox, Nav2, Raspberry Pi 4, Depth Anything V2",
             image: "/images/slam-robot.png",
-            description: "ROS 2 TurtleBot with SLAM Toolbox mapping and navigation. Depth Anything V2 runs on a GPU host while the Raspberry Pi handles sensing and control, reaching about 40 FPS end to end.",
-            link: "https://drive.google.com/file/d/1ot3MGC7jAUIMdgKHL1H_JMf2UZwRm2Ra/view?usp=sharing"
+            description: "ROS 2 rover with LiDAR SLAM and Nav2 on a Raspberry Pi 4, plus real-time monocular depth (Depth Anything V2) streamed to a GPU host at about 35 to 40 FPS, and ArUco relocalization.",
+            link: "https://drive.google.com/file/d/1ot3MGC7jAUIMdgKHL1H_JMf2UZwRm2Ra/view?usp=sharing",
+            github: "https://github.com/Deepakk-06/SENTINEL-SLAM",
         },
         {
             id: 4,
@@ -78,8 +81,9 @@ export const config = {
             category: "Control / Navigation",
             technologies: "ROS 2 Jazzy, Python, Gazebo, SciPy",
             image: "/images/mpc-navigation.png",
-            description: "Nonlinear MPC path tracking for TurtleBot3 over a 15-step horizon, with cubic spline smoothing and LiDAR soft-barrier obstacle avoidance so the robot slows and reroutes instead of stopping abruptly.",
-            link: "https://github.com/Deepakk-06/ROS2-Model-Predictive-Control-"
+            description: "Nonlinear MPC path tracking for TurtleBot3 in Gazebo Sim: cubic-spline waypoint smoothing, a 25-step horizon, and LiDAR soft-barrier obstacle avoidance with an emergency stop.",
+            link: "https://github.com/Deepakk-06/ROS2-Model-Predictive-Control-",
+            github: "https://github.com/Deepakk-06/ROS2-Model-Predictive-Control-",
         },
         {
             id: 5,
@@ -87,8 +91,9 @@ export const config = {
             category: "Computer Vision / Edge AI",
             technologies: "YOLOv8, OpenCV, Raspberry Pi, Folium",
             image: "/images/soil-grain-mapping.png",
-            description: "YOLOv8 soil grain classifier with 92% detection accuracy on a custom dataset, running real-time on Raspberry Pi with GPS-tagged detections shown on an interactive Folium map.",
-            link: "https://www.youtube.com/watch?v=Gqag98Drhi4"
+            description: "YOLOv8 soil classifier (red, black, perlite, mixed) with 92% accuracy on a self-collected, self-annotated dataset. Each class maps to a GPS location on a Folium map, with ONNX and TFLite export for Raspberry Pi.",
+            link: "https://www.youtube.com/watch?v=Gqag98Drhi4",
+            github: "https://github.com/Deepakk-06/Soil-Grain-Detection-Mapping",
         },
         {
             id: 6,

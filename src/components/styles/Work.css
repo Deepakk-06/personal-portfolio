@@ -350,3 +350,29 @@
     font-size: 14px;
   }
 }
+/* ---- Project description + icon links ---- */
+.work-desc {
+  font-size: 13px;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.62);
+  margin: 10px 0 14px;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.work-title > .work-num { text-align: left; display: flex; flex-direction: column; gap: 14px; }
+.work-icons { display: flex; gap: 10px; }
+.work-icons a {
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(198, 255, 0, 0.5);
+  border-radius: 50%;
+  color: var(--accentColor);
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+.work-icons a svg { width: 18px; height: 18px; }
+.work-icons a:hover { background: var(--accentColor); color: #0a0a0c; transform: translateY(-2px); }
