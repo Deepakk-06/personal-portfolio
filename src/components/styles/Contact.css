@@ -250,3 +250,26 @@ a.contact-social {
     margin-bottom: 50px;
   }
 }
+
+/* ---- Player 2 credit ---- */
+.contact-credit .contact-credit-sponsor {
+  margin: 14px 0 10px;
+  padding: 0;
+  font-family: var(--fontMono);
+  font-size: 12px;
+  line-height: 1.6;
+  letter-spacing: 0.04em;
+  text-align: left;
+  max-width: 280px;
+  color: rgba(255, 255, 255, 0.55);
+}
+.contact-credit .contact-credit-sponsor b,
+.contact-credit .contact-credit-sponsor span {
+  display: block;
+}
+.contact-credit .contact-credit-sponsor b {
+  color: #ff2d95;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  margin-bottom: 2px;
+}

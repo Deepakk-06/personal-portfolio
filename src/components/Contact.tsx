@@ -181,6 +181,10 @@ const Contact = () => {
               Designed + built <br /> by <span>{config.developer.fullName}</span>
             </h2>
             <p className="contact-credit-location">Bengaluru, India</p>
+            <p className="contact-credit-sponsor">
+              <b>PLAYER 2 · SPONSOR</b>
+              <span>my brother, who funds most of my builds</span>
+            </p>
             <h5>
               <MdCopyright /> {new Date().getFullYear()}
             </h5>
