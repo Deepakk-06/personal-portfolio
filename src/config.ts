@@ -110,7 +110,7 @@ export const config = {
         linkedin: "https://linkedin.com/in/deepk6",
         website: "https://deepxk.vercel.app",
         phone: "+91 9606137475",
-        resume: "/Deepak_K_Resume.pdf"
+        resume: "/ds.pdf"
     },
     skills: {
         develop: {
