@@ -1,6 +1,6 @@
 import { Resend } from "resend";
 
-const RECEIVER = process.env.CONTACT_RECEIVER_EMAIL || "deeeeps06@gmail.com";
+const RECEIVER = process.env.CONTACT_RECEIVER_EMAIL || "deepakk.hq@gmail.com";
 const FROM = process.env.CONTACT_FROM_EMAIL || "Deepak <onboarding@resend.dev>";
 
 const isEmail = (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);

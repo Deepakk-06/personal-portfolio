@@ -7,7 +7,7 @@ export const config = {
     },
     social: {
         github: "Deepakk-06",
-        email: "deeeeps06@gmail.com",
+        email: "deepakk.hq@gmail.com",
         location: "Bengaluru, Karnataka, India"
     },
     about: {
@@ -105,7 +105,7 @@ export const config = {
         }
     ],
     contact: {
-        email: "deeeeps06@gmail.com",
+        email: "deepakk.hq@gmail.com",
         github: "https://github.com/Deepakk-06",
         linkedin: "https://linkedin.com/in/deepk6",
         website: "https://deepxk.vercel.app",
