@@ -1,0 +1,73 @@
+.email-field {
+  flex: 1 1 220px;
+  position: relative;
+}
+.email-field input {
+  width: 100%;
+  box-sizing: border-box;
+  flex: none;
+}
+.contact-form-row {
+  align-items: flex-start;
+}
+.email-bot-icon {
+  position: absolute;
+  top: -1px;
+  right: -48px;
+  width: 38px;
+  height: 35px;
+  pointer-events: none;
+  overflow: visible;
+  --bot: #c6ff00;
+}
+.email-bot-icon[data-mood="confused"],
+.email-bot-icon[data-mood="close"],
+.email-bot-icon[data-mood="typo"] { --bot: #ff2d95; }
+.px-body { fill: var(--bot); }
+.px-white { fill: #fff; }
+.px-pupil { fill: #10140a; }
+.px-ink { fill: #10140a; }
+.px-mouth { fill: #0a0a0c; transform-box: fill-box; transform-origin: left center; animation: px-chomp 0.5s steps(1, end) infinite; }
+.px-pellet { animation: px-pellet 0.5s steps(1, end) infinite; }
+.px-ghost { animation: px-float 2.4s steps(2, jump-none) infinite; }
+.email-bot-icon[data-mood="confused"],
+.email-bot-icon[data-mood="typo"] { animation: px-shake 0.4s steps(4, end) 2; }
+.email-bot-icon[data-mood="happy"] { animation: px-hop 0.5s steps(4, end) 1; }
+@keyframes px-chomp { 0% { transform: scaleY(1); } 50% { transform: scaleY(0.12); } }
+@keyframes px-pellet { 0% { opacity: 1; } 50% { opacity: 0.25; } }
+@keyframes px-float { 0% { transform: translateY(0); } 100% { transform: translateY(-1px); } }
+@keyframes px-shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-2px); } 75% { transform: translateX(2px); } }
+@keyframes px-hop { 0% { transform: translateY(0); } 50% { transform: translateY(-5px); } 100% { transform: translateY(0); } }
+.email-bot-msg {
+  margin: 6px 0 0;
+  min-height: 18px;
+  font-family: var(--fontMono);
+  font-size: 11px;
+  line-height: 1.5;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.55);
+}
+.email-bot-msg:not(:empty)::before { content: "> "; }
+.email-bot-msg[data-mood="confused"],
+.email-bot-msg[data-mood="close"],
+.email-bot-msg[data-mood="typo"] { color: #ff2d95; }
+.email-bot-msg[data-mood="happy"] { color: #c6ff00; }
+.email-bot-fix {
+  margin-left: 10px;
+  padding: 2px 10px;
+  white-space: nowrap;
+  font: inherit;
+  letter-spacing: 0.1em;
+  color: #0a0a0c;
+  background: #c6ff00;
+  border: 0;
+  border-radius: 0;
+  cursor: pointer;
+}
+@media only screen and (max-width: 1200px) {
+  .email-field input { padding-right: 52px; }
+  .email-bot-icon { top: 8px; right: 9px; width: 30px; height: 28px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .px-mouth, .px-pellet, .px-ghost, .email-bot-icon { animation: none !important; }
+}

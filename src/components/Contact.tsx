@@ -6,6 +6,7 @@ import { config } from "../config";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, useState } from "react";
+import EmailBot from "./EmailBot";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -95,14 +96,17 @@ const Contact = () => {
               maxLength={100}
               data-cursor="disable"
             />
-            <input
-              type="email"
-              placeholder="Your email"
-              value={form.email}
-              onChange={(e) => setForm({ ...form, email: e.target.value })}
-              required
-              data-cursor="disable"
-            />
+            <div className="email-field">
+              <input
+                type="email"
+                placeholder="Your email"
+                value={form.email}
+                onChange={(e) => setForm({ ...form, email: e.target.value })}
+                required
+                data-cursor="disable"
+              />
+              <EmailBot value={form.email} onFix={(email) => setForm({ ...form, email })} />
+            </div>
           </div>
           <textarea
             placeholder="Your message"
