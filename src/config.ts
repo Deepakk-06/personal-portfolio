@@ -115,6 +115,5 @@ export const config = {
         website: "https://deepxk.vercel.app",
         phone: "+91 9606137475",
         resume: "/ds.pdf"
-    },
-
+    }
 };
