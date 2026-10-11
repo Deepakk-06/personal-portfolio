@@ -2,7 +2,7 @@ import "./styles/Work.css";
 import WorkImage from "./WorkImage";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { config } from "../config";
 import { Link } from "react-router-dom";
 
@@ -58,23 +58,11 @@ const Work = () => {
       ScrollTrigger.getById("work")?.kill();
     };
   }, []);
-  useEffect(() => {
-    if (window.innerWidth > 768) return;
-    const flex = document.querySelector(".work-flex") as HTMLElement | null;
-    const route = document.querySelector(".work-route") as HTMLElement | null;
-    if (!flex || !route) return;
-    const update = () => {
-      const max = flex.scrollWidth - flex.clientWidth;
-      const p = max > 0 ? flex.scrollLeft / max : 0;
-      route.style.setProperty("--p", String(p));
-      const nodes = route.querySelectorAll(".wr-node");
-      const idx = Math.round(p * (nodes.length - 1));
-      nodes.forEach((n, i) => n.classList.toggle("on", i === idx));
-    };
-    update();
-    flex.addEventListener("scroll", update, { passive: true });
-    return () => flex.removeEventListener("scroll", update);
-  }, []);
+  const [open, setOpen] = useState<number | null>(null);
+  const toggle = (e: React.MouseEvent, id: number) => {
+    if ((e.target as HTMLElement).closest("a")) return;
+    setOpen((cur) => (cur === id ? null : id));
+  };
 
   return (
     <div className="work-section" id="work">
@@ -84,9 +72,9 @@ const Work = () => {
         </h2>
         <div className="work-flex">
           {config.projects.slice(0, 6).map((project, index) => (
-            <div className="work-box" key={project.id}>
+            <div className={"work-box" + (open === project.id ? " is-open" : "")} key={project.id}>
               <div className="work-info">
-                <div className="work-title">
+                <div className="work-title" onClick={(e) => toggle(e, project.id)}>
                   <div className="work-num">
                     <h3>0{index + 1}</h3>
                     <div className="work-icons">
@@ -107,6 +95,7 @@ const Work = () => {
                     <h4>{project.title}</h4>
                     <p>{project.category}</p>
                   </div>
+                  <span className="work-toggle" aria-hidden="true"></span>
                 </div>
                 <p className="work-desc">{project.description}</p>
                 <h4>Tools and features</h4>
@@ -126,16 +115,6 @@ const Work = () => {
             </div>
           </div>
         </div>
-      </div>
-      <div className="work-route" aria-hidden="true">
-        <span>01</span>
-        <div className="wr-track">
-          <div className="wr-fill"></div>
-          {config.projects.slice(0, 6).map((p, i) => (
-            <div className={"wr-node" + (i === 0 ? " on" : "")} key={p.id}></div>
-          ))}
-        </div>
-        <span>06</span>
       </div>
     </div>
   );

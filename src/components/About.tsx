@@ -32,6 +32,24 @@ const About = () => {
         <p className="para-short">
           {config.about.shortDescription.split("Deepak").map((part, i, arr) => i < arr.length - 1 ? <span key={i}>{part}deepAk</span> : part)}
         </p>
+        <div className="about-mobile">
+          <div className="about-chain" aria-hidden="true">
+            {config.about.chain.map((word, i) => (
+              <span key={word} style={{ animationDelay: `${0.3 + i * 0.28}s` }}>{word}</span>
+            ))}
+          </div>
+          <h4 className="about-pull">
+            {config.about.pull.split(", ")[0]},
+            <br />
+            <em>{config.about.pull.split(", ")[1]}</em>
+          </h4>
+          <p className="about-body">{config.about.mobileDescription}</p>
+        </div>
+        <ul className="about-facts">
+          {config.about.facts.map((fact) => (
+            <li key={fact}>{fact}</li>
+          ))}
+        </ul>
       </div>
     </div>
   );

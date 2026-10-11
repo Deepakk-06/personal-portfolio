@@ -59,47 +59,7 @@
   body .header ul { display: none; }
   .landing-section .landing-info { bottom: calc(120px + clamp(36px, 8svh, 64px) + 70px) !important; }
   .container-main { padding-bottom: 80px; }
-
-  /* Work: swipeable cards */
-  .work-section .work-flex {
-    flex-direction: row;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    overscroll-behavior-x: contain;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    gap: 14px;
-    box-sizing: border-box;
-    padding: 4px 7% 16px;
-  }
-  .work-section .work-flex::-webkit-scrollbar { display: none; }
-  .work-section .work-flex::before,
-  .work-section .work-flex::after { display: none; }
-  .work-section .work-flex .work-box {
-    flex: 0 0 100%;
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
-    scroll-snap-align: center;
-    border: 1px solid rgba(255, 255, 255, 0.14);
-    border-radius: 16px;
-    background: rgba(255, 255, 255, 0.02);
-    padding: 18px 16px;
-  }
-  .work-section .work-flex .work-box-cta {
-    flex: 0 0 78%;
-    width: 78%;
-    border: 1px dashed rgba(255, 255, 255, 0.25);
-  }
-
-  /* simple dots instead of the glowing route line */
-  .work-route { display: flex; justify-content: center; margin: 4px 0 0; --p: 0; }
-  .work-route span, .work-route .wr-fill { display: none; }
-  .work-route .wr-track { display: flex; gap: 8px; flex: none; position: static; height: auto; background: none; }
-  .work-route .wr-node { width: 6px; height: 6px; border: 0; border-radius: 50%; background: rgba(255, 255, 255, 0.25); box-shadow: none; transform: none; }
-  .work-route .wr-node.on { background: #fff; }
 }
-@media only screen and (min-width: 769px) { .work-route { display: none; } }
 
 /* Phone width fix: the hero's pink glow is wider than the screen, which makes Chrome on Android lay the page out wider than the phone and shrink it. Clip it at the screen edge. */
 @media only screen and (max-width: 900px) {

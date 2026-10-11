@@ -647,3 +647,16 @@ h2.landing-info-h2 {
     text-shadow: 0 0 22px rgba(255, 45, 149, 0.45), 0 2px 14px rgba(0, 0, 0, 0.85);
   }
 }
+
+/* Phone hero: a small mono line above the name instead of a big greeting */
+@media only screen and (max-width: 768px) {
+  .landing-intro h2 {
+    margin: 0 0 10px !important;
+    font-family: var(--fontMono) !important;
+    font-size: clamp(11px, 3.3vw, 14px) !important;
+    font-weight: 500 !important;
+    line-height: 1 !important;
+    letter-spacing: 0.18em !important;
+    color: var(--accentColor);
+  }
+}

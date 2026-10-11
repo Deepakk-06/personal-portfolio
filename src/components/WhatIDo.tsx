@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import "./styles/WhatIDo.css";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { config } from "../config";
+import StackGame from "./StackGame";
 
 const WhatIDo = () => {
   const containerRef = useRef<(HTMLDivElement | null)[]>([]);
@@ -28,12 +29,13 @@ const WhatIDo = () => {
   return (
     <div className="whatIDO">
       <div className="what-box">
-        <h2 className="title">
+        <h2 className="title what-title-desktop">
           W<span className="hat-h2">HAT</span>
           <div>
             &nbsp;I<span className="do-h2"> DO</span>
           </div>
         </h2>
+        <h2 className="title what-title-mobile">After hours</h2>
       </div>
       <div className="what-box">
         <div className="what-box-in">
@@ -135,6 +137,10 @@ const WhatIDo = () => {
               <div className="what-arrow"></div>
             </div>
           </div>
+        </div>
+        <div className="what-play">
+          <StackGame />
+          <p className="what-play-note">All night with a game, or all night with a build. Never both.</p>
         </div>
       </div>
     </div>

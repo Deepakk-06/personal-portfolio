@@ -41,53 +41,6 @@
   display: block;
 }
 
-/* Phone-only: make About feel like the next scene, not a small paragraph
-   immediately beneath the character canvas. */
-@media only screen and (max-width: 767px) {
-  .about-section {
-    width: 100%;
-    min-height: 64svh;
-    box-sizing: border-box;
-    padding: 82px 16px 88px;
-    overflow: hidden;
-    background:
-      linear-gradient(90deg, rgba(198, 255, 0, 0.55) 0 1px, transparent 1px) 16px 0 / calc(100% - 32px) 1px no-repeat,
-      radial-gradient(circle at 82% 16%, rgba(255, 45, 149, 0.13), transparent 42%),
-      radial-gradient(circle at 8% 90%, rgba(0, 229, 255, 0.09), transparent 38%);
-  }
-
-  .about-section::before {
-    content: "ABOUT / 01";
-    position: absolute;
-    top: 28px;
-    right: 16px;
-    color: rgba(198, 255, 0, 0.7);
-    font-family: var(--fontMono);
-    font-size: 9px;
-    letter-spacing: 0.16em;
-  }
-
-  .about-me {
-    max-width: none;
-    padding: 0;
-  }
-
-  .about-me h3 {
-    margin: 0 0 22px;
-    font-size: 14px;
-    letter-spacing: 0.2em;
-  }
-
-  .about-me p {
-    max-width: 34ch;
-    margin: 0;
-    font-size: clamp(22px, 6vw, 27px);
-    line-height: 1.28;
-    letter-spacing: -0.02em;
-    word-spacing: 0.05em;
-  }
-}
-
 @media only screen and (min-width: 600px) {
   .about-section {
     justify-content: center;
@@ -147,52 +100,9 @@
   }
 }
 
-/* Phone-only scroll transition: scan line sweeps, text rises out of blur, title glitches once */
-@media only screen and (max-width: 767px) {
-  .about-section.m-armed .about-me {
-    opacity: 0;
-    transform: translateY(48px);
-    filter: blur(8px);
-  }
-  .about-section.m-armed::after {
-    content: "";
-    position: absolute;
-    left: 16px;
-    right: 16px;
-    top: 0;
-    height: 2px;
-    background: linear-gradient(90deg, #c6ff00, #00e5ff, #ff2d95);
-    transform: scaleX(0);
-    transform-origin: left;
-  }
-  .about-section.m-in::after {
-    animation: aboutScan 0.9s ease-out forwards;
-  }
-  .about-section.m-in .about-me {
-    animation: aboutRise 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) 0.25s forwards;
-  }
-  .about-section.m-in .about-me h3 {
-    animation: aboutGlitch 0.7s steps(2, end) 0.55s 1;
-  }
-  @keyframes aboutScan {
-    0% { transform: scaleX(0); opacity: 1; }
-    70% { transform: scaleX(1); opacity: 1; }
-    100% { transform: scaleX(1); opacity: 0; }
-  }
-  @keyframes aboutRise {
-    to { opacity: 1; transform: none; filter: none; }
-  }
-  @keyframes aboutGlitch {
-    0% { transform: translateX(0); text-shadow: none; }
-    25% { transform: translateX(-4px); text-shadow: 3px 0 #00e5ff, -3px 0 #ff2d95; }
-    50% { transform: translateX(4px); text-shadow: -3px 0 #00e5ff, 3px 0 #ff2d95; }
-    75% { transform: translateX(-2px); text-shadow: 2px 0 #00e5ff, -2px 0 #ff2d95; }
-    100% { transform: translateX(0); text-shadow: none; }
-  }
-}
 @media (prefers-reduced-motion: reduce) {
   .about-section.m-armed .about-me { opacity: 1; transform: none; filter: none; animation: none; }
-  .about-section.m-armed::after, .about-section.m-in .about-me h3 { animation: none; }
+  .about-section.m-in .about-me { animation: none; }
 }
 
 /* about-short: phones get a shorter About paragraph, tablets and desktop keep the full one */
@@ -206,4 +116,117 @@
   .about-me p.para-short {
     display: block;
   }
+}
+
+.about-facts,
+.about-mobile { display: none; }
+
+/* Phone-only: a plain, readable intro. No gradients, no scan line, no glitch. */
+@media only screen and (max-width: 767px) {
+  .about-section {
+    display: block;
+    width: 100%;
+    min-height: 0;
+    box-sizing: border-box;
+    padding: 72px 20px 24px;
+    overflow: visible;
+  }
+  .about-section .about-me {
+    width: 100%;
+    max-width: 560px;
+    margin: 0 auto;
+    padding: 0;
+  }
+  .about-section .about-me h3 {
+    margin: 0 0 18px;
+    font: 500 12px/1 var(--fontMono);
+    letter-spacing: 0.2em;
+    color: var(--accentColor);
+  }
+  .about-section .about-me p {
+    max-width: none;
+    margin: 0;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.65;
+    letter-spacing: 0;
+    word-spacing: 0;
+    color: rgba(255, 255, 255, 0.82);
+  }
+  .about-facts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+    list-style: none;
+    margin: 28px 0 0;
+    padding: 18px 0 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+  }
+  .about-facts li {
+    font: 400 11px/1.4 var(--fontMono);
+    letter-spacing: 0.06em;
+    color: rgba(255, 255, 255, 0.55);
+  }
+  .about-section.m-armed .about-me {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  .about-section.m-in .about-me {
+    animation: aboutRise 0.6s ease-out forwards;
+  }
+  @keyframes aboutRise {
+    to { opacity: 1; transform: none; }
+  }
+}
+
+/* Phone-only: tell the story from the copy itself (controller > code > circuits > robots) */
+@media only screen and (max-width: 767px) {
+  .about-section .about-me p.para,
+  .about-section .about-me p.para-short { display: none; }
+  .about-mobile { display: block; }
+
+  .about-chain {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px 0;
+    margin-bottom: 26px;
+    font: 500 11px/1 var(--fontMono);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+  .about-chain span {
+    color: rgba(255, 255, 255, 0.3);
+  }
+  .about-chain span:not(:last-child)::after {
+    content: "\2192";
+    margin: 0 9px;
+    color: rgba(255, 255, 255, 0.2);
+  }
+  .about-chain span:last-child { color: var(--accentColor); }
+  .about-section.m-in .about-chain span {
+    animation: chainLit 0.5s ease-out forwards;
+  }
+  .about-section.m-in .about-chain span:last-child {
+    animation-name: chainLitLast;
+  }
+  @keyframes chainLit { to { color: #fff; } }
+  @keyframes chainLitLast { from { color: rgba(255, 255, 255, 0.3); } to { color: var(--accentColor); } }
+
+  .about-pull {
+    margin: 0 0 20px;
+    font-size: clamp(24px, 7.2vw, 30px);
+    font-weight: 600;
+    line-height: 1.18;
+    letter-spacing: -0.01em;
+  }
+  .about-pull em {
+    font-style: normal;
+    color: var(--accentColor);
+  }
+  .about-section .about-me p.about-body { color: rgba(255, 255, 255, 0.7); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .about-chain span { animation: none !important; color: #fff; }
+  .about-chain span:last-child { color: var(--accentColor); }
 }
