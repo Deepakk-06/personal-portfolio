@@ -1,0 +1,37 @@
+.arcade-tabs {
+  width: min(100%, 320px);
+  margin: 0 auto 12px;
+  display: flex;
+  gap: 8px;
+  font-family: var(--fontMono);
+}
+.arcade-tab {
+  position: relative;
+  flex: 1;
+  padding: 9px 8px;
+  font: 500 11px/1 var(--fontMono);
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.55);
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 4px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.arcade-tab.is-on {
+  color: var(--accentColor);
+  border-color: var(--accentColor);
+  box-shadow: 0 0 16px rgba(198, 255, 0, 0.18);
+}
+.arcade-new {
+  position: absolute;
+  top: -7px;
+  right: 6px;
+  padding: 2px 4px;
+  font: 700 8px/1 var(--fontMono);
+  font-style: normal;
+  letter-spacing: 0.1em;
+  color: #060809;
+  background: var(--accent2);
+  border-radius: 2px;
+}
