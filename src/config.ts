@@ -2,8 +2,8 @@ export const config = {
     developer: {
         name: "Deepak",
         fullName: "Deepak",
-        title: "EEE Undergraduate | Building Autonomous Robots",
-        description: "EEE undergraduate building autonomous robots with ROS 2, embedded systems and computer vision."
+        title: "EEE Undergraduate | Electronics & Software",
+        description: "EEE undergraduate interested in electronics, software development and engineering projects."
     },
     social: {
         github: "Deepakk-06",
@@ -116,18 +116,5 @@ export const config = {
         phone: "+91 9606137475",
         resume: "/ds.pdf"
     },
-    skills: {
-        develop: {
-            title: "ROBOTICS & AUTONOMY",
-            description: "ROS 2 navigation, SLAM and sensor fusion",
-            details: "Building autonomous robots on ROS 2 Jazzy: LiDAR SLAM, Monte Carlo localization, Navigation2 and nonlinear MPC path tracking, tested in Gazebo and on TurtleBot, hexapod and Jetson hardware.",
-            tools: ["ROS 2 (Jazzy)", "micro-ROS", "Navigation2", "SLAM Toolbox", "AMCL", "URDF", "Behavior Trees", "TF Transforms", "LiDAR SLAM", "Sensor Fusion", "Path Planning", "Gazebo", "RViz"]
-        },
-        design: {
-            title: "EMBEDDED & VISION",
-            description: "Real-time control, firmware and computer vision",
-            details: "Programming microcontrollers and single-board computers for real-time control, and deploying YOLOv8 and OpenCV vision pipelines on edge hardware.",
-            tools: ["Arduino C", "C", "Python", "ESP32", "STM32", "Raspberry Pi 4", "NVIDIA Jetson", "PID", "MPC", "Kinematics", "YOLOv8", "OpenCV", "Deep Learning", "Reinforcement Learning"]
-        }
-    }
+
 };
