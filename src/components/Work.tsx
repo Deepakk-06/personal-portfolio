@@ -58,6 +58,24 @@ const Work = () => {
       ScrollTrigger.getById("work")?.kill();
     };
   }, []);
+  useEffect(() => {
+    if (window.innerWidth > 768) return;
+    const flex = document.querySelector(".work-flex") as HTMLElement | null;
+    const route = document.querySelector(".work-route") as HTMLElement | null;
+    if (!flex || !route) return;
+    const update = () => {
+      const max = flex.scrollWidth - flex.clientWidth;
+      const p = max > 0 ? flex.scrollLeft / max : 0;
+      route.style.setProperty("--p", String(p));
+      const nodes = route.querySelectorAll(".wr-node");
+      const idx = Math.round(p * (nodes.length - 1));
+      nodes.forEach((n, i) => n.classList.toggle("on", i === idx));
+    };
+    update();
+    flex.addEventListener("scroll", update, { passive: true });
+    return () => flex.removeEventListener("scroll", update);
+  }, []);
+
   return (
     <div className="work-section" id="work">
       <div className="work-container section-container">
@@ -108,6 +126,16 @@ const Work = () => {
             </div>
           </div>
         </div>
+      </div>
+      <div className="work-route" aria-hidden="true">
+        <span>01</span>
+        <div className="wr-track">
+          <div className="wr-fill"></div>
+          {config.projects.slice(0, 6).map((p, i) => (
+            <div className={"wr-node" + (i === 0 ? " on" : "")} key={p.id}></div>
+          ))}
+        </div>
+        <span>06</span>
       </div>
     </div>
   );

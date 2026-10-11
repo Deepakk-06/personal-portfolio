@@ -1,0 +1,144 @@
+.mhud { display: none; }
+@media only screen and (max-width: 768px) {
+  .mhud { display: block; }
+  .mhud-level {
+    position: fixed;
+    top: calc(env(safe-area-inset-top, 0px) + 16px);
+    right: 16px;
+    z-index: 9000;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font: 11px/1 var(--fontMono);
+    letter-spacing: 0.14em;
+    color: var(--accentColor);
+    text-shadow: 0 0 8px rgba(0, 0, 0, 0.9);
+    pointer-events: none;
+  }
+  .mhud-level i { display: block; width: 44px; height: 4px; background: rgba(255, 255, 255, 0.18); }
+  .mhud-level b { display: block; height: 100%; background: linear-gradient(90deg, #c6ff00, #ff2d95); }
+  .mhud-dock {
+    position: fixed;
+    left: 12px;
+    right: 12px;
+    bottom: calc(env(safe-area-inset-bottom, 0px) + 12px);
+    height: 54px;
+    z-index: 9998;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 27px;
+    background: rgba(14, 16, 18, 0.9);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(198, 255, 0, 0.25);
+  }
+  .mhud-dock button {
+    background: none;
+    border: 0;
+    padding: 6px 3px;
+    color: #8a8f94;
+    font: 8.5px var(--fontMono);
+    letter-spacing: 0.1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+  }
+  .mhud-dock button::before { content: ""; width: 6px; height: 6px; background: #3a3f44; }
+  .mhud-resume { display: flex; flex-direction: column; align-items: center; gap: 5px; padding: 6px 3px; color: var(--accentColor); font: 8.5px var(--fontMono); letter-spacing: 0.1em; text-decoration: none; }
+  .mhud-resume::before { content: ""; width: 6px; height: 6px; background: var(--accentColor); }
+  .mhud-dock button.on { color: #ff2d95; }
+  .mhud-dock button.on::before { background: #ff2d95; box-shadow: 0 0 10px #ff2d95; }
+  /* make room: SOUND moves up under the level readout, social + resume sit above the dock */
+  body .music-toggle {
+    top: calc(env(safe-area-inset-top, 0px) + 40px);
+    right: 16px;
+    bottom: auto;
+    left: auto;
+    transform: none;
+    padding: 6px 12px;
+    font-size: 10px;
+  }
+  body .icons-section { display: none; }
+  body .header ul { display: none; }
+  .landing-section .landing-info { bottom: calc(120px + clamp(36px, 8svh, 64px) + 76px) !important; }
+  .container-main { padding-bottom: 86px; }
+
+  /* section level tags */
+  .about-section .title::before,
+  .what-box .title::before,
+  .career-container h2::before,
+  .work-section h2::before,
+  .techstack-content h2::before,
+  .contact-section h3:first-of-type::before {
+    display: block;
+    margin-bottom: 8px;
+    font: 500 11px/1 var(--fontMono);
+    letter-spacing: 0.2em;
+    color: #ff2d95;
+  }
+  .about-section .title::before { content: "LVL 02 · ABOUT"; }
+  .what-box .title::before { content: "LVL 03 · WHAT I DO"; }
+  .career-container h2::before { content: "LVL 04 · CAREER"; }
+  .work-section h2::before { content: "LVL 05 · WORK"; }
+  .techstack-content h2::before { content: "LVL 06 · STACK"; }
+
+  /* Work: swipeable cards */
+  .work-section .work-flex {
+    flex-direction: row;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 14px;
+    box-sizing: border-box;
+    padding: 4px 7% 16px;
+  }
+  .work-section .work-flex::-webkit-scrollbar { display: none; }
+  .work-section .work-flex::before,
+  .work-section .work-flex::after { display: none; }
+  .work-section .work-flex .work-box {
+    flex: 0 0 100%;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    scroll-snap-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.02);
+    padding: 18px 16px;
+  }
+  .work-section .work-flex .work-box-cta {
+    flex: 0 0 78%;
+    width: 78%;
+    border: 1px dashed rgba(198, 255, 0, 0.4);
+    border-bottom: 1px dashed rgba(198, 255, 0, 0.4);
+  }
+  .work-route {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 4px 7% 0;
+    font: 10px var(--fontMono);
+    letter-spacing: 0.14em;
+    color: #8a8f94;
+    --p: 0;
+  }
+  .work-route .wr-track { position: relative; flex: 1; height: 2px; background: rgba(255, 255, 255, 0.16); display: flex; justify-content: space-between; align-items: center; }
+  .work-route .wr-fill { position: absolute; left: 0; top: 0; height: 100%; width: calc(var(--p) * 100%); background: linear-gradient(90deg, #c6ff00, #ff2d95); }
+  .work-route .wr-node { position: relative; width: 7px; height: 7px; background: #0a0a0c; border: 2px solid rgba(255, 255, 255, 0.35); }
+  .work-route .wr-node.on { background: #ff2d95; border-color: #ff2d95; box-shadow: 0 0 10px #ff2d95; transform: scale(1.3); }
+}
+@media only screen and (min-width: 769px) { .work-route { display: none; } }
+
+/* Phone width fix: the hero's pink glow is wider than the screen, which makes Chrome on Android lay the page out wider than the phone and shrink it. Clip it at the screen edge. */
+@media only screen and (max-width: 900px) {
+  .character-model,
+  .character-container {
+    overflow: clip !important;
+    max-width: 100vw !important;
+  }
+}
