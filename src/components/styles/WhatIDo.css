@@ -454,11 +454,7 @@
   }
 }
 
-.what-title-mobile,
-.what-play { display: none; }
-
-/* Phone-only: this section is the after-hours corner. The cards and the project
-   list live elsewhere, so it is just a label and a game. */
+/* Phone-only: the games replace the two cards. Desktop and tablet are untouched. */
 @media only screen and (max-width: 767px) {
   .whatIDO {
     display: block;
@@ -466,30 +462,6 @@
     padding: 56px 20px 24px;
     box-sizing: border-box;
   }
-  .whatIDO .what-box {
-    width: 100%;
-    max-width: 560px;
-    height: auto !important;
-    margin: 0 auto;
-    display: block;
-  }
-  .whatIDO .what-box h2.title {
-    margin: 0 0 18px;
-    font: 500 12px/1 var(--fontMono);
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--accentColor);
-  }
-  .whatIDO .what-box h2.what-title-desktop { display: none; }
-  .whatIDO .what-box h2.what-title-mobile { display: block; }
-
-  .whatIDO .what-box-in { display: none; }
-
-  .what-play { display: block; }
-  .what-play-note {
-    margin: 14px 0 0;
-    font: 400 11px/1.6 var(--fontMono);
-    letter-spacing: 0.06em;
-    color: rgba(255, 255, 255, 0.45);
-  }
+  .whatIDO .what-box { display: none; }
+  .whatIDO .what-arcade { display: block; width: 100%; }
 }

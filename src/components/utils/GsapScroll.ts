@@ -122,14 +122,18 @@ export function setCharTimeline(
     if (character) {
       // Phones: character stays put in the hero and just turns slightly as it scrolls away.
       tl1.fromTo(character.rotation, { y: 0 }, { y: 0.5, duration: 1 }, 0);
-      const tM2 = gsap.timeline({
-        scrollTrigger: {
-          trigger: ".what-box-in",
-          start: "top 70%",
-          end: "bottom top",
-        },
-      });
-      tM2.to(".what-box-in", { display: "flex", duration: 0.1, delay: 0 }, 0);
+      // Tablets reveal the skill cards. Phones keep them hidden (see WhatIDo.css),
+      // so GSAP must not force display:flex there.
+      if (window.innerWidth > 767) {
+        const tM2 = gsap.timeline({
+          scrollTrigger: {
+            trigger: ".what-box-in",
+            start: "top 70%",
+            end: "bottom top",
+          },
+        });
+        tM2.to(".what-box-in", { display: "flex", duration: 0.1, delay: 0 }, 0);
+      }
     }
   }
 }
